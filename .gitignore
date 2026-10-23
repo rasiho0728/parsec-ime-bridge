@@ -1,0 +1,14 @@
+# Build output
+bin/
+obj/
+dist/
+
+# Logs written by the probe tools
+*-log.txt
+probe-log.txt
+keyboard-info.txt
+
+# Editor
+.vs/
+.vscode/
+*.user

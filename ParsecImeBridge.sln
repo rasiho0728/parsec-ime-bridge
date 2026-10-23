@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A5777544-F90C-475A-85E3-FE154FB15093}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParsecImeBridge", "src\ParsecImeBridge\ParsecImeBridge.csproj", "{37E0F722-4342-4A80-A9B8-AF97D0BC9D4E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{F346C633-4EE6-4A01-A7D6-C55B8B723F80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParsecKeyProbe", "tools\ParsecKeyProbe\ParsecKeyProbe.csproj", "{C87F7336-11F3-4D33-A3A7-0C5B6F1DB409}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParsecClientProbe", "tools\ParsecClientProbe\ParsecClientProbe.csproj", "{1ACEC9AD-4EE8-4BFB-856F-CC51DD139CD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyboardInfo", "tools\KeyboardInfo\KeyboardInfo.csproj", "{A1E23A23-1C1C-4EB2-AD1A-43410687623E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37E0F722-4342-4A80-A9B8-AF97D0BC9D4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37E0F722-4342-4A80-A9B8-AF97D0BC9D4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37E0F722-4342-4A80-A9B8-AF97D0BC9D4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37E0F722-4342-4A80-A9B8-AF97D0BC9D4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C87F7336-11F3-4D33-A3A7-0C5B6F1DB409}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C87F7336-11F3-4D33-A3A7-0C5B6F1DB409}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C87F7336-11F3-4D33-A3A7-0C5B6F1DB409}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C87F7336-11F3-4D33-A3A7-0C5B6F1DB409}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1ACEC9AD-4EE8-4BFB-856F-CC51DD139CD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ACEC9AD-4EE8-4BFB-856F-CC51DD139CD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ACEC9AD-4EE8-4BFB-856F-CC51DD139CD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ACEC9AD-4EE8-4BFB-856F-CC51DD139CD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1E23A23-1C1C-4EB2-AD1A-43410687623E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1E23A23-1C1C-4EB2-AD1A-43410687623E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1E23A23-1C1C-4EB2-AD1A-43410687623E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1E23A23-1C1C-4EB2-AD1A-43410687623E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{37E0F722-4342-4A80-A9B8-AF97D0BC9D4E} = {A5777544-F90C-475A-85E3-FE154FB15093}
+		{C87F7336-11F3-4D33-A3A7-0C5B6F1DB409} = {F346C633-4EE6-4A01-A7D6-C55B8B723F80}
+		{1ACEC9AD-4EE8-4BFB-856F-CC51DD139CD5} = {F346C633-4EE6-4A01-A7D6-C55B8B723F80}
+		{A1E23A23-1C1C-4EB2-AD1A-43410687623E} = {F346C633-4EE6-4A01-A7D6-C55B8B723F80}
+	EndGlobalSection
+EndGlobal
