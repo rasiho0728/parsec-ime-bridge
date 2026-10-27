@@ -14,13 +14,15 @@ namespace ParsecImeBridge
         readonly ContextMenuStrip _menu = new ContextMenuStrip();
         readonly ToolStripMenuItem _status = new ToolStripMenuItem { Enabled = false };
         readonly ToolStripMenuItem _enabledItem = new ToolStripMenuItem("사용");
-        readonly ToolStripMenuItem _hangulItem = new ToolStripMenuItem("한/영 키 변환 (오른쪽 Alt)");
-        readonly ToolStripMenuItem _hanjaItem = new ToolStripMenuItem("한자 키 변환 (오른쪽 Ctrl)");
+        readonly ToolStripMenuItem _hangulItem = new ToolStripMenuItem();
+        readonly ToolStripMenuItem _hanjaItem = new ToolStripMenuItem();
+        readonly ToolStripMenuItem _settingsItem = new ToolStripMenuItem("키 설정...");
         readonly ToolStripMenuItem _autoStartItem = new ToolStripMenuItem("Windows 시작 시 실행");
         readonly Icon _offIcon = MakeIcon(Color.Gray);
         readonly Icon _idleIcon = MakeIcon(Color.FromArgb(0x3B, 0x6E, 0xD8));
         readonly Icon _activeIcon = MakeIcon(Color.FromArgb(0x1E, 0x9E, 0x4A));
         readonly KeyBridge _bridge;
+        SettingsForm _settingsForm;
 
         public TrayApp()
         {
@@ -30,13 +32,14 @@ namespace ParsecImeBridge
                 new ToolStripSeparator(),
                 _enabledItem, _hangulItem, _hanjaItem,
                 new ToolStripSeparator(),
-                _autoStartItem,
+                _settingsItem, _autoStartItem,
                 new ToolStripSeparator(),
                 new ToolStripMenuItem("종료", null, (s, e) => ExitThread()),
             });
             _enabledItem.Click += (s, e) => Toggle(() => _settings.Enabled = !_settings.Enabled);
             _hangulItem.Click += (s, e) => Toggle(() => _settings.Hangul = !_settings.Hangul);
             _hanjaItem.Click += (s, e) => Toggle(() => _settings.Hanja = !_settings.Hanja);
+            _settingsItem.Click += (s, e) => ShowSettings();
             _autoStartItem.Click += (s, e) =>
             {
                 Settings.AutoStart = !Settings.AutoStart;
@@ -62,8 +65,28 @@ namespace ParsecImeBridge
             UpdateUi();
         }
 
+        void ShowSettings()
+        {
+            if (_settingsForm != null)
+            {
+                _settingsForm.Activate();
+                return;
+            }
+            _settingsForm = new SettingsForm(_settings, _bridge);
+            _settingsForm.FormClosed += (s, e) =>
+            {
+                _settingsForm.Dispose();
+                _settingsForm = null;
+                UpdateUi();
+            };
+            _settingsForm.Show();
+            _settingsForm.Activate();
+        }
+
         void UpdateUi()
         {
+            _hangulItem.Text = $"한/영 전환: {_settings.HangulTrigger}";
+            _hanjaItem.Text = $"한자 변환: {_settings.HanjaTrigger}";
             _enabledItem.Checked = _settings.Enabled;
             _hangulItem.Checked = _settings.Hangul;
             _hanjaItem.Checked = _settings.Hanja;

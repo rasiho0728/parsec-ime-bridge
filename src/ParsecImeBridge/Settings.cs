@@ -14,6 +14,8 @@ namespace ParsecImeBridge
         public bool Enabled { get; set; } = true;
         public bool Hangul { get; set; } = true;
         public bool Hanja { get; set; } = true;
+        public KeyTrigger HangulTrigger { get; set; } = KeyTrigger.DefaultHangul;
+        public KeyTrigger HanjaTrigger { get; set; } = KeyTrigger.DefaultHanja;
 
         public static Settings Load()
         {
@@ -24,6 +26,8 @@ namespace ParsecImeBridge
                 s.Enabled = ReadBool(key, nameof(Enabled), s.Enabled);
                 s.Hangul = ReadBool(key, nameof(Hangul), s.Hangul);
                 s.Hanja = ReadBool(key, nameof(Hanja), s.Hanja);
+                s.HangulTrigger = KeyTrigger.Parse(key.GetValue(nameof(HangulTrigger)) as string, s.HangulTrigger);
+                s.HanjaTrigger = KeyTrigger.Parse(key.GetValue(nameof(HanjaTrigger)) as string, s.HanjaTrigger);
             }
             return s;
         }
@@ -35,6 +39,8 @@ namespace ParsecImeBridge
                 key.SetValue(nameof(Enabled), Enabled ? 1 : 0);
                 key.SetValue(nameof(Hangul), Hangul ? 1 : 0);
                 key.SetValue(nameof(Hanja), Hanja ? 1 : 0);
+                key.SetValue(nameof(HangulTrigger), HangulTrigger.Serialize());
+                key.SetValue(nameof(HanjaTrigger), HanjaTrigger.Serialize());
             }
         }
 

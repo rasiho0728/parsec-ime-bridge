@@ -7,6 +7,7 @@ namespace ParsecImeBridge
     {
         public const int WH_KEYBOARD_LL = 13;
 
+        public const uint LLKHF_EXTENDED = 0x01;
         public const uint LLKHF_INJECTED = 0x10;
         public const uint LLKHF_UP = 0x80;
 
@@ -89,6 +90,9 @@ namespace ParsecImeBridge
 
         [DllImport("user32.dll", SetLastError = true)]
         public static extern uint SendInput(uint nInputs, INPUT[] pInputs, int cbSize);
+
+        [DllImport("user32.dll")]
+        public static extern short GetAsyncKeyState(int vKey);
 
         [DllImport("user32.dll")]
         public static extern IntPtr GetForegroundWindow();
